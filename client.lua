@@ -50,6 +50,12 @@ cmds.digDown = turtle.digDown
 cmds.place = turtle.place
 cmds.placeUp = turtle.placeUp
 cmds.placeDown = turtle.placeDown
+cmds.rs = redstone.setOutput('front',true) sleep(1) redstone.setOutput('front', false)
+cmds.rsBack = redstone.setOutput('back',true) sleep(1) redstone.setOutput('back', false)
+cmds.rsUp = redstone.setOutput('top',true) sleep(1) redstone.setOutput('top', false)
+cmds.rsDown = redstone.setOutput('bottom',true) sleep(1) redstone.setOutput('bottom', false)
+cmds.rsLeft = redstone.setOutput('left',true) sleep(1) redstone.setOutput('left', false)
+cmds.rsRight = redstone.setOutput('right',true) sleep(1) redstone.setOutput('right', false)
 
 sID = {...}
 if #sID < 1 then

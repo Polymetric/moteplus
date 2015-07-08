@@ -3,7 +3,7 @@
 require 'net/http'
 http = Net::HTTP
 
-uri = URI('http://hbar.kapsi.fi/ccserver/mote/put')
+uri = URI('http://hbar.kapsi.fi/ccserver/mote/put/')
 id = http.get('hbar.kapsi.fi','/ccserver/mote/newID/')
 
 puts "Your session ID is: " + id
@@ -14,12 +14,14 @@ puts "left, right"
 puts "up, down"
 puts "dig, digDown, digUp"
 puts "place, placeDown, placeUp"
+puts "rs, rsBack, rsUp, rsDown, rsLeft, rsRight"
 
 while true
   command = gets
-  res = http.post_form(uri, 'sessionId' => id, 'command' => command)
+  res = http.post_form(uri, 'sessionId' => id, 'command' => command.to_s)
   if res.message == "OK" then
-    puts 'Command { ' + command + ' } sent!'
+    puts 'Command: ' + command + ' sent!'
   else
     puts 'Error sending command, please restart'
+  end
 end
