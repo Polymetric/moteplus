@@ -1,17 +1,13 @@
+-- Modified Client for Mote - The Turtle Remote
+-- 2015 Austin Paxton
+-- with credit to
 -- Client for Mote - The Turtle Remote
 -- http://hbar.kapsi.fi/ccserver/mote/
 -- 2014 Matti Vapa
+
 -- Feel free to modify and redistribute
 -- this program. Attribution is appreciated,
--- but not required.
-
--- I take no responsibility on any
--- problems this program might cause
--- to anyone ever. Not that it will.
-
--- version 2.0
--- updated to asynchronous connection to the
--- server for better responsivenes
+-- but not required
 
 if not http then
   print("HTTP required!")
@@ -27,6 +23,43 @@ print("Ok!")
 
 -- Query this address for commands.
 url = "http://hbar.kapsi.fi/ccserver/mote/get/"
+
+-- Helper functions for some more complicated commands
+function redFront()
+  redstone.setOutput('front',true)
+  sleep(1)
+  redstone.setOutput('front', false)
+end
+
+function redBack()
+  redstone.setOutput('back',true)
+  sleep(1)
+  redstone.setOutput('back', false)
+end
+
+function redLeft()
+  redstone.setOutput('left',true)
+  sleep(1)
+  redstone.setOutput('left', false)
+end
+
+function redRight()
+  redstone.setOutput('right',true)
+  sleep(1)
+  redstone.setOutput('right', false)
+end
+
+function redUp()
+  redstone.setOutput('top',true)
+  sleep(1)
+  redstone.setOutput('top', false)
+end
+
+function redDown()
+  redstone.setOutput('bottom',true)
+  sleep(1)
+  redstone.setOutput('bottom', false)
+end
 
 -- Map the commands returned by the server to functions.
 -- These are all of the commands available at the time of
@@ -50,18 +83,19 @@ cmds.digDown = turtle.digDown
 cmds.place = turtle.place
 cmds.placeUp = turtle.placeUp
 cmds.placeDown = turtle.placeDown
-cmds.rs = redstone.setOutput('front',true) sleep(1) redstone.setOutput('front', false)
-cmds.rsBack = redstone.setOutput('back',true) sleep(1) redstone.setOutput('back', false)
-cmds.rsUp = redstone.setOutput('top',true) sleep(1) redstone.setOutput('top', false)
-cmds.rsDown = redstone.setOutput('bottom',true) sleep(1) redstone.setOutput('bottom', false)
-cmds.rsLeft = redstone.setOutput('left',true) sleep(1) redstone.setOutput('left', false)
-cmds.rsRight = redstone.setOutput('right',true) sleep(1) redstone.setOutput('right', false)
+cmds.rs = redFront
+cmds.rsBack = redBack
+cmds.rsUp = redUp
+cmds.rsDown = redDown
+cmds.rsLeft = redLeft
+cmds.rsRight = redRight
 
 sID = {...}
 if #sID < 1 then
   print("Usage: mote <session ID>")
   print("Parameter session ID is the random numbers and letters")
   print("following /mote/ in the controller URL.")
+  return false
 end
 sID = sID[1]
 -- We need to send this data to get the commands from server.
