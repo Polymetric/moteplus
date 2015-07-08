@@ -38,16 +38,18 @@ url = "http://hbar.kapsi.fi/ccserver/mote/get/"
 -- was at least one command or query during the last hour
 -- (might change if there's need for it).
 cmds = {}
-cmds.arrowUp = turtle.forward
-cmds.arrowDown = turtle.back
-cmds.arrowLeft = turtle.turnLeft
-cmds.arrowRight = turtle.turnRight
-cmds.button1 = turtle.up
-cmds.button2 = turtle.dig
-cmds.button3 = turtle.place
-cmds.button4 = turtle.down
-cmds.button5 = turtle.digDown
-cmds.menu = turtle.attack
+cmds.forward = turtle.forward
+cmds.back = turtle.back
+cmds.left = turtle.turnLeft
+cmds.right = turtle.turnRight
+cmds.up = turtle.up
+cmds.down = turtle.down
+cmds.dig = turtle.dig
+cmds.digUp = turtle.digUp
+cmds.digDown = turtle.digDown
+cmds.place = turtle.place
+cmds.placeUp = turtle.placeUp
+cmds.placeDown = turtle.placeDown
 
 sID = {...}
 if #sID < 1 then
