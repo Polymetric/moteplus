@@ -50,5 +50,4 @@ work do
       puts 'dpad right'
     end
   }
-  on joystick, :button
 end
