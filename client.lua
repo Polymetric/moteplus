@@ -89,6 +89,8 @@ cmds.rsUp = redUp
 cmds.rsDown = redDown
 cmds.rsLeft = redLeft
 cmds.rsRight = redRight
+cmds.suck = turtle.suck
+cmds.drop = turtle.drop
 
 sID = {...}
 if #sID < 1 then
