@@ -1,7 +1,7 @@
 # moteplus
 A fork of http://hbar.kapsi.fi/ccserver/mote/ that adds more functionality.
 
-Controller support for USB PS3 controller via artoo requires ruby and the artoo gem. Run `ruby controller_start.rb` to start that up. Program will output the session id to plug into the client.
+Controller support for USB PS3 controller via http://artoo.io/ requires ruby and the `artoo-joystick` gem. Run `ruby controller_start.rb` to start that up. Program will output the session id to plug into the client.
 
 Redstone output, more dig directions, etc.
 
